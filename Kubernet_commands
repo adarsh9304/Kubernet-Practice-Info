@@ -1,0 +1,54 @@
+
+sudo usermod -aG docker $USER
+newgrp docker
+docker run hello-world
+minikube start --driver=docker --memory=4096 --cpus=2
+
+By adding your user to the docker group and applying the changes, you should resolve the permission denied issue
+
+minikube addons enable dashboard
+minikube addons enable default-storageclass
+
+
+
+makesure systemctl start docker
+minikube start
+
+kubectl create deployment my-deploy1(name of deployment) --image=node(image name):latest
+
+kubectl get deployments
+
+kubectl get pods
+
+minikube dashboard
+
+minikube status
+
+
+object service:
+
+kubectl expose deployment my-deploy1 --port=80 --type=LoadBalancer
+
+kubectl get services
+
+minikube service my-deploy1
+
+
+
+kubectl logs
+
+kubectl describe pods
+
+kubectl set image deployment my-app(dep. name) container_name=[new_image_name with version]
+
+kubectl rollout status deployment my-app
+
+kubectl rollout undo deployment my-app
+
+kubectl scale deployment [name] --replicas=4
+
+kubctl apply -f [fileName.yml]
+
+
+
+
