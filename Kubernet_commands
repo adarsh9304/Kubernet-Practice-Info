@@ -49,6 +49,12 @@ kubectl scale deployment [name] --replicas=4
 
 kubctl apply -f [fileName.yml]
 
+multiple container:
+make and push image to docker hub or pull into local
+run dependencies first like docker run -d -p 27017:27017 --network my-net --name mongo mongo
+run main app like docker run --network my-net -p 3000:3000 --name myapp [image_name]
+
+kubectl get sc
 
 
 

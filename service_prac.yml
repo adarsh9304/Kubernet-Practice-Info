@@ -1,0 +1,21 @@
+/*
+Imagine we have a web application with three Pods running. we want users to be able to access this application using a single IP address
+
+selector: This tells the Service to look for Pods with the label app: MyApp.
+ports: This tells the Service to listen on port 80 and forward the traffic to port 8080 of the selected Pods.
+type: ClusterIP: This makes the Service accessible only within the cluster.
+
+*/
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-web-service
+spec:
+  selector:
+    app: MyApp
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+  type: ClusterIP

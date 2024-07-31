@@ -1,0 +1,27 @@
+/*
+
+replicas: 3: This tells Kubernetes to run 3 copies of the Pod.
+selector: This matches Pods with the label app: MyApp.
+template: This is the blueprint for creating the Pods. It specifies the container image (my-web-image:latest) and the port the container listens on (8080).
+
+*/
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-web-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: MyApp
+  template:
+    metadata:
+      labels:
+        app: MyApp
+    spec:
+      containers:
+      - name: my-web-container
+        image: my-web-image:latest
+        ports:
+        - containerPort: 8080
